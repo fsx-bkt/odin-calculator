@@ -64,15 +64,21 @@ function add(number1, number2){
 }
 
 function subtract(number1, number2){
-    console.log("Subtract works!");
+    userInput[0] = Number(number1) - Number(number2);
+    clearInputAfterCalculation();
+    updateDisplayField();
 }
 
 function multiply(number1, number2){
-    console.log("Multiply works!");
+    userInput[0] = Number(number1) * Number(number2);
+    clearInputAfterCalculation();
+    updateDisplayField();
 }
 
 function divide(number1, number2){
-    console.log("Divide works!");
+    userInput[0] = Math.round(Number(number1) / Number(number2));
+    clearInputAfterCalculation();
+    updateDisplayField();
 }
 
 function operate(){
@@ -96,6 +102,12 @@ function operate(){
             multiply(number1, number2);
             break;
         case '/':
+            if (number2 === "0"){
+                alert("Can't divide by 0!");
+                userInput[2] = "";
+                updateDisplayField();
+                return;
+            }
             divide(number1, number2);
             break;
         default:

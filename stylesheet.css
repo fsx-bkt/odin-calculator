@@ -1,7 +1,7 @@
 body, html{
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100vh; 
 }
 
 .calculator-container{
@@ -67,6 +67,6 @@ body, html{
 }
 
 .display{
-    font-size: 6rem;
-    justify-content: right;
+    font-size: min(15vh, 20vw);
+    justify-content: flex-end;
 }
