@@ -1,3 +1,10 @@
+:root{
+    --primary-color: #403b33;
+    --secondary-color: #D3643B;
+    --tertiary-color: #C9ECCD;
+    --quarternary-color: #37D65D;
+}
+
 body, html{
     margin: 0;
     padding: 0;
@@ -10,16 +17,16 @@ body, html{
     box-sizing: border-box;
     height: 100vh;
     padding: 15px;
-    
+    background-color: var(--primary-color);
 }
 
 .display{
     display: flex;
     height: 20%;
-    border: 2px solid black;
     box-sizing: border-box;
     overflow: hidden;
     padding: 1rem;
+    background-color: var(--tertiary-color);
 }
 
 .button-container{
@@ -47,19 +54,27 @@ body, html{
 .number-button, .calculate-button, .clear-button{
     width: calc((100% - 30px) / 3);
     height: calc((100% - 45px) / 4);
-    border: 2px solid black;
     box-sizing: border-box;
     display: flex;
+}
+
+.number-button{
+    background-color: var(--tertiary-color);
+}
+
+.calculate-button, .clear-button{
+    background-color: var(--quarternary-color);
 }
 
 .operator-button{
     height: calc((100% - 45px) / 3);
-    border: 2px solid black;
     box-sizing: border-box;
     display: flex;
+    background-color: var(--secondary-color);
 }
 
 .display, .number-button, .calculate-button, .clear-button, .operator-button{
+    border-style: none;
     border-radius: 10px;
     font-size: min(4vw, 2em);
     justify-content: center;
