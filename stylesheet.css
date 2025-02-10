@@ -14,8 +14,12 @@ body, html{
 }
 
 .display{
+    display: flex;
     height: 20%;
     border: 2px solid black;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 1rem;
 }
 
 .button-container{
@@ -40,24 +44,12 @@ body, html{
     gap: 15px;
 }
 
-.number-button{
+.number-button, .calculate-button, .clear-button{
     width: calc((100% - 30px) / 3);
     height: calc((100% - 45px) / 4);
     border: 2px solid black;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.calculate-button{
-    width: calc(((200% - 15px) / 3));
-    height: calc((100% - 45px) / 4);
-    border: 2px solid black;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .operator-button{
@@ -65,11 +57,16 @@ body, html{
     border: 2px solid black;
     box-sizing: border-box;
     display: flex;
+}
+
+.display, .number-button, .calculate-button, .clear-button, .operator-button{
+    border-radius: 10px;
+    font-size: min(4vw, 2em);
     justify-content: center;
     align-items: center;
 }
 
-.display, .number-button, .calculate-button, .operator-button{
-    border-radius: 10px;
-    font-size: min(4vw, 2em);
+.display{
+    font-size: 6rem;
+    justify-content: right;
 }

@@ -1,3 +1,31 @@
+let userInput = [];
+let ifFirstNumberInput = true;
+let ifOperatorButtonPressed = true;
+
+let numberButtons = document.querySelectorAll(".number-button");
+let operatorButtons = document.querySelectorAll(".operator-button");
+
+for (let i = 0; i < numberButtons.length; i++){
+    numberButtons[i].addEventListener("click", assignNumberVariable)
+}
+
+for (let i = 0; i < operatorButtons.length; i++){
+    operatorButtons[i].addEventListener(("click"), assignOperatorVariable);
+}
+
+function assignNumberVariable(e){
+    if(ifFirstNumberInput){
+        userInput[0] += e.target.textContent;
+    }
+    else{
+        userInput[2] += e.target.textContent;
+    }
+}
+
+function assignOperatorVariable(e){
+    userInput[1] = e.target.textContent;
+}
+
 function add(number1, number2){
     console.log("Add works!");
 }
