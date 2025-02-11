@@ -67,14 +67,14 @@ body, html{
     background-color: var(--quinternary-color);
 }
 
-.number-button, .calculate-button{
+.number-button, .calculate-button, .decimal-button{
     width: calc((100% - 30px) / 3);
     height: calc((100% - 45px) / 4);
     box-sizing: border-box;
     display: flex;
 }
 
-.number-button{
+.number-button, .decimal-button{
     background-color: var(--tertiary-color);
 }
 
@@ -89,7 +89,7 @@ body, html{
     background-color: var(--secondary-color);
 }
 
-.display, .number-button, .calculate-button, .clear-all-button, .backspace-button, .operator-button{
+.display, .number-button, .calculate-button, .clear-all-button, .backspace-button, .operator-button, .decimal-button{
     border-style: none;
     border-radius: 10px;
     font-size: min(4vw, 2em);

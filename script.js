@@ -1,8 +1,11 @@
 let userInput = ["","",""];
 let ifFirstNumberInput = true;
-let ifDecimalPointUsed = false;
 
 let numberButtons = document.querySelectorAll(".number-button");
+let decimalButton = Array.from(numberButtons).find(button => button.textContent === '.');
+decimalButton.addEventListener('click', function() {
+    this.disabled = true;
+});
 let operatorButtons = document.querySelectorAll(".operator-button");
 let clearButton = document.querySelector(".clear-all-button");
 let calculateButton = document.querySelector(".calculate-button");
@@ -38,6 +41,7 @@ function assignOperatorVariable(e){
     }
     userInput[1] = e.target.textContent;
     ifFirstNumberInput = false;
+    decimalButton.disabled = false;
     updateDisplayField();
 }
 
@@ -50,34 +54,38 @@ function updateDisplayField(){
 function clearInputAfterCalculation(){
     userInput[1] = "";
     userInput[2] = "";
+    if (!Number.isInteger(userInput[0])){
+        decimalButton.disabled = true;
+    }
 }
 
 function clear(){
     userInput = ["","",""];
     ifFirstNumberInput = true;
+    decimalButton.disabled = false;
     updateDisplayField();
 }
 
 function add(number1, number2){
-    userInput[0] = Number(number1) + Number(number2);
+    userInput[0] = Math.round((Number(number1) + Number(number2)) * 100) / 100;
     clearInputAfterCalculation();
     updateDisplayField();
 }
 
 function subtract(number1, number2){
-    userInput[0] = Number(number1) - Number(number2);
+    userInput[0] = Math.round((Number(number1) - Number(number2)) * 100) / 100;
     clearInputAfterCalculation();
     updateDisplayField();
 }
 
 function multiply(number1, number2){
-    userInput[0] = Number(number1) * Number(number2);
+    userInput[0] = Math.round((Number(number1) * Number(number2)) * 100) / 100;
     clearInputAfterCalculation();
     updateDisplayField();
 }
 
 function divide(number1, number2){
-    userInput[0] = Number(number1) / Number(number2);
+    userInput[0] = Math.round((Number(number1) / Number(number2)) * 100) / 100;
     clearInputAfterCalculation();
     updateDisplayField();
 }
