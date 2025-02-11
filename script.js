@@ -7,6 +7,7 @@ decimalButton.addEventListener('click', function() {
     this.disabled = true;
 });
 let operatorButtons = document.querySelectorAll(".operator-button");
+let backSpaceButton = document.querySelector(".backspace-button");
 let clearButton = document.querySelector(".clear-all-button");
 let calculateButton = document.querySelector(".calculate-button");
 let displayField = document.querySelector(".display");
@@ -22,6 +23,29 @@ for (let i = 0; i < operatorButtons.length; i++){
 
 clearButton.addEventListener("click", clear);
 calculateButton.addEventListener("click", operate);
+backSpaceButton.addEventListener("click", deletePreviousEntry);
+
+function deletePreviousEntry(){
+    if(ifFirstNumberInput){
+        if(userInput[0][userInput[0].length -1] === "."){
+            decimalButton.disabled = false;
+        }
+        userInput[0] = userInput[0].slice(0, -1);
+        updateDisplayField();
+    }
+    else if(userInput[2] === ""){
+        userInput[1] = userInput[1].slice(0, -1);
+        ifFirstNumberInput = true;
+        updateDisplayField();
+    }
+    else{
+        if(userInput[2][userInput[2].length -1] === "."){
+            decimalButton.disabled = false;
+        }
+        userInput[2] = userInput[2].slice(0, -1);
+        updateDisplayField();
+    }
+}
 
 function assignNumberVariable(e){
     if(ifFirstNumberInput){
