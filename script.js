@@ -1,9 +1,10 @@
 let userInput = ["","",""];
 let ifFirstNumberInput = true;
+let ifDecimalPointUsed = false;
 
 let numberButtons = document.querySelectorAll(".number-button");
 let operatorButtons = document.querySelectorAll(".operator-button");
-let clearButton = document.querySelector(".clear-button");
+let clearButton = document.querySelector(".clear-all-button");
 let calculateButton = document.querySelector(".calculate-button");
 let displayField = document.querySelector(".display");
 
@@ -76,7 +77,7 @@ function multiply(number1, number2){
 }
 
 function divide(number1, number2){
-    userInput[0] = Math.round(Number(number1) / Number(number2));
+    userInput[0] = Number(number1) / Number(number2);
     clearInputAfterCalculation();
     updateDisplayField();
 }
